@@ -7,6 +7,7 @@ import com.soccer.view.viewTeam;
 
 public class Main {
     private static Scanner scanner;
+
     public static void main(String[] args) {
         scanner = new Scanner(System.in);
         Controller ctrlTeams = new Controller();
@@ -18,22 +19,23 @@ public class Main {
         viewPlayer.controlador = ctrlPlayers;
         viewTeam vt = new viewTeam();
         viewPlayer vp = new viewPlayer();
-        while(true){
+        while (true) {
             displayMenu();
             int op = scanner.nextInt();
             scanner.nextLine();
             switch (op) {
                 case 1:
-                    vp.start();
+                    vt.start();
                     break;
                 case 2:
-                    vt.start();
+                    vp.start();
                     break;
                 default:
                     break;
             }
         }
     }
+
     private static void displayMenu() {
         System.out.println("1. Equipos");
         System.out.println("2. Jugadores");
@@ -41,4 +43,5 @@ public class Main {
         System.out.println("4. Entrenadores");
         System.out.println("5. Salir");
     }
+
 }

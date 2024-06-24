@@ -3,7 +3,7 @@ package com.soccer.model.entity;
 public class Coach extends Person {
     private int idFederacion;
 
-    public Coach(){
+    public Coach() {
         super();
     }
 
@@ -23,5 +23,5 @@ public class Coach extends Person {
     public void setIdFederacion(int idFederacion) {
         this.idFederacion = idFederacion;
     }
-    
+
 }

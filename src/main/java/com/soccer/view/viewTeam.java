@@ -7,6 +7,7 @@ import com.soccer.model.entity.Team;
 
 public class viewTeam {
     public static Controller controlador;
+
     public void start() {
         Scanner scanner = new Scanner(System.in);
 
@@ -22,15 +23,15 @@ public class viewTeam {
 
             switch (choice) {
                 case 1:
-                        Team equipo = new Team();
-                        String codigoEquipo = null;
-                        System.out.println("Ingrese el codigo del equipo :");
-                        codigoEquipo = scanner.nextLine();
-                        System.out.println("Ingrese Nombre del equipo :");
-                        equipo.setNombre(scanner.nextLine());
-                        System.out.println("Ingrese la ciudad :");
-                        equipo.setCiudad(scanner.nextLine());
-                        controlador.equipos.put(codigoEquipo, equipo);
+                    Team equipo = new Team();
+                    String codigoEquipo = null;
+                    System.out.println("Ingrese el codigo del equipo :");
+                    codigoEquipo = scanner.nextLine();
+                    System.out.println("Ingrese Nombre del equipo :");
+                    equipo.setNombre(scanner.nextLine());
+                    System.out.println("Ingrese la ciudad :");
+                    equipo.setCiudad(scanner.nextLine());
+                    controlador.equipos.put(codigoEquipo, equipo);
                     break;
 
                 case 2:
