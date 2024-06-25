@@ -43,6 +43,7 @@ public class viewPlayer {
 
        private void displayMenu() {
               cleanScreen();
+              System.out.println("---------------------MENU JUGADOR-----------------------------");
               System.out.println("1. Crear jugador");
               System.out.println("2. Actualizar jugador");
               System.out.println("3. Buscar jugador");
@@ -52,6 +53,8 @@ public class viewPlayer {
        }
 
        private void createPlayer() {
+              cleanScreen();
+              System.out.println("---------------------MENU CREAR JUGADOR-----------------------");
               System.out.println("Ingrese el codigo del jugador:");
               String codigoJugador = scanner.nextLine();
               System.out.println("Ingrese id del jugador:");
@@ -76,11 +79,14 @@ public class viewPlayer {
        }
 
        private void updatePlayer() {
+              cleanScreen();
+              System.out.println("---------------------MENU ACTUALIZAR JUGADOR------------------");
               System.out.println("Ingresa el codigo del jugador:");
               String codigoJugador = scanner.nextLine();
 
               if (!controlador.jugadores.containsKey(codigoJugador)) {
                      System.out.println("No se encontró un jugador con ese codigo");
+                     pause();
                      return;
               }
 
@@ -137,6 +143,7 @@ public class viewPlayer {
 
        private void searchPlayer() {
               cleanScreen();
+              System.out.println("---------------------MENU BUSCAR JUGADOR------------------------");
               System.out.println("Ingresa el codigo del jugador:");
               String codigoJugador = scanner.nextLine();
 
@@ -150,13 +157,22 @@ public class viewPlayer {
        }
 
        private void deletePlayer() {
+              cleanScreen();
+              System.out.println("---------------------MENU ELIMANAR JUGADOR--------------------------");
               System.out.println("Ingrese el codigo del jugador que va a remover:");
               String codigoJugador = scanner.nextLine();
-              controlador.jugadores.remove(codigoJugador);
+
+              if (controlador.jugadores.remove(codigoJugador) != null) {
+                     System.out.println("Jugador eliminado exitosamente.");
+              } else {
+                     System.out.println("Jugador no encontrado.");
+              }
+              pause();
        }
 
        private void listAllPlayers() {
               cleanScreen();
+              System.out.println("---------------------MENU TODOS LOS JUGADORES-----------------");
               Set<String> keys = controlador.jugadores.keySet();
               for (String key : keys) {
                      Player jugador = controlador.jugadores.get(key);
@@ -166,13 +182,12 @@ public class viewPlayer {
        }
 
        private void displayPlayerDetails(Player jugador) {
-              System.out.println("----------------------------------------------------");
               System.out.println("id: " + jugador.getId());
               System.out.println("Nombre: " + jugador.getNombre() + " " + jugador.getApellido());
               System.out.println("Edad: " + jugador.getEdad());
               System.out.println("Dorsal: " + jugador.getDorsal());
               System.out.println("Posicion: " + jugador.getPosicion());
-              System.out.println("----------------------------------------------------");
+              System.out.println("--------------------------------------------------------------");
 
        }
 

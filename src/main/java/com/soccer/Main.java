@@ -28,9 +28,9 @@ public class Main {
         viewDoctor vd = new viewDoctor();
         viewCoach vc = new viewCoach();
         while (true) {
+            cleanScreen();
             displayMenu();
-            int op = scanner.nextInt();
-            scanner.nextLine();
+            int op = option_validation("opcion:", 1, 5);
             switch (op) {
                 case 1:
                     vt.start();
@@ -45,6 +45,7 @@ public class Main {
                     vc.start();
                     break;
                 case 5:
+                    System.out.println("Good bye!");
                     System.exit(0);
                     return;
                 default:
@@ -59,6 +60,35 @@ public class Main {
         System.out.println("3. Doctores");
         System.out.println("4. Entrenadores");
         System.out.println("5. Salir");
+    }
+
+    // util functions
+    private static int option_validation(String statement, int lower, int upper) {
+        while (true) {
+            try {
+                System.out.println(statement);
+                int option = scanner.nextInt();
+                scanner.nextLine();
+                if (option >= lower && option <= upper) {
+                    return option;
+                } else {
+                    System.out.println(String.format("The option is not in the interval: %1$d-%2$d", lower, upper));
+                }
+            } catch (Exception e) {
+                System.out.println("Please, type a valid number.");
+                scanner.nextLine();
+            }
+        }
+    }
+
+    private static void pause() {
+        System.out.println("Press enter to continue");
+        scanner.nextLine();
+    }
+
+    private static void cleanScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
 }
