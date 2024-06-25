@@ -34,9 +34,7 @@ public class viewPlayer {
                                    listAllPlayers();
                                    break;
                             case 6:
-                                   scanner.close();
-                                   System.exit(0);
-                                   break;
+                                   return;
                             default:
                                    System.out.println("Opción inválida, intentelo de nuevo.");
                      }
@@ -73,6 +71,8 @@ public class viewPlayer {
               String posicion = scanner.nextLine();
               Player jugador = new Player(id, nombre, apellido, edad, dorsal, posicion);
               controlador.jugadores.put(codigoJugador, jugador);
+              System.out.println("Jugador creado exitosamente.");
+              pause();
        }
 
        private void updatePlayer() {
@@ -99,24 +99,34 @@ public class viewPlayer {
                      case 1:
                             System.out.println("Ingrese el nuevo nombre:");
                             jugador.setNombre(scanner.nextLine());
+                            System.out.println("Jugador actualizado exitosamente.");
+                            pause();
                             break;
                      case 2:
                             System.out.println("Ingrese el nuevo apellido:");
                             jugador.setApellido(scanner.nextLine());
+                            System.out.println("Jugador actualizado exitosamente.");
+                            pause();
                             break;
                      case 3:
                             System.out.println("Ingrese la nueva edad:");
                             jugador.setEdad(scanner.nextInt());
                             scanner.nextLine();
+                            System.out.println("Jugador actualizado exitosamente.");
+                            pause();
                             break;
                      case 4:
                             System.out.println("Ingrese la nueva dorsal:");
                             jugador.setDorsal(scanner.nextInt());
                             scanner.nextLine();
+                            System.out.println("Jugador actualizado exitosamente.");
+                            pause();
                             break;
                      case 5:
                             System.out.println("Ingrese la nueva posicion:");
                             jugador.setPosicion(scanner.nextLine());
+                            System.out.println("Jugador actualizado exitosamente.");
+                            pause();
                             break;
                      case 6:
                             return;
