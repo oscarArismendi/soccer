@@ -22,13 +22,14 @@ public class Main {
         viewPlayer.controlador = ctrlPlayers;
         viewDoctor.controlador = ctrlDoctors;
         viewCoach.controlador = ctrlCoachs;
-        
+
         viewTeam vt = new viewTeam();
         viewPlayer vp = new viewPlayer();
         viewDoctor vd = new viewDoctor();
         viewCoach vc = new viewCoach();
         while (true) {
             cleanScreen();
+            System.out.println("---------------------MENU PRINCIPAL---------------------------");
             displayMenu();
             int op = option_validation("opcion:", 1, 5);
             switch (op) {
@@ -79,11 +80,6 @@ public class Main {
                 scanner.nextLine();
             }
         }
-    }
-
-    private static void pause() {
-        System.out.println("Press enter to continue");
-        scanner.nextLine();
     }
 
     private static void cleanScreen() {

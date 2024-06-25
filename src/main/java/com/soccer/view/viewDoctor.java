@@ -43,6 +43,7 @@ public class viewDoctor {
 
     private void displayMenu() {
         cleanScreen();
+        System.out.println("---------------------MENU DOCTOR------------------------------");
         System.out.println("1. Crear doctor");
         System.out.println("2. Actualizar doctor");
         System.out.println("3. Buscar doctor");
@@ -52,6 +53,8 @@ public class viewDoctor {
     }
 
     private void createDoctor() {
+        cleanScreen();
+        System.out.println("---------------------MENU CREAR DOCTOR------------------------");
         System.out.println("Ingresar codigo del doctor:");
         String codigoDoctor = scanner.nextLine();
         System.out.println("Ingresar id del doctor:");
@@ -77,17 +80,20 @@ public class viewDoctor {
     }
 
     private void updateDoctor() {
+        cleanScreen();
+        System.out.println("---------------------MENU ACTUALIZAR DOCTOR-------------------");
         System.out.println("Introduce el codigo del doctor a actualizar:");
         String id = scanner.nextLine();
-        ;
 
         if (!controlador.doctores.containsKey(id)) {
             System.out.println("No se encontró un doctor con ese codigo");
+            pause();
             return;
         }
 
         Doctor doctor = controlador.doctores.get(id);
         cleanScreen();
+        System.out.println("---------------------MENU ACTUALIZAR DOCTOR-------------------");
         System.out.println("1. Cambiar nombre");
         System.out.println("2. Cambiar apellido");
         System.out.println("3. Cambiar edad");
@@ -139,6 +145,8 @@ public class viewDoctor {
     }
 
     private void searchDoctor() {
+        cleanScreen();
+        System.out.println("---------------------MENU BUSCAR DOCTOR-----------------------");
         System.out.println("Introduce el codigo del doctor a buscar:");
         String codigoDoctor = scanner.nextLine();
         Doctor doctor = controlador.doctores.get(codigoDoctor);
@@ -151,6 +159,8 @@ public class viewDoctor {
     }
 
     private void deleteDoctor() {
+        cleanScreen();
+        System.out.println("---------------------MENU ELIMINAR DOCTOR---------------------");
         System.out.println("Introduce el codigo del doctor a eliminar:");
         String codigoDoctor = scanner.nextLine();
 
@@ -164,6 +174,7 @@ public class viewDoctor {
 
     private void listAllDoctors() {
         cleanScreen();
+        System.out.println("---------------------MENU TODOS LOS DOCTORES------------------");
         Set<String> keys = controlador.doctores.keySet();
         for (String key : keys) {
             Doctor doctor = controlador.doctores.get(key);
@@ -173,13 +184,12 @@ public class viewDoctor {
     }
 
     private void displayDoctorDetails(Doctor doctor) {
-        System.out.println("----------------------------------------------------");
         System.out.println("ID: " + doctor.getId());
         System.out.println("Nombre: " + doctor.getNombre() + " " + doctor.getApellido());
         System.out.println("Edad: " + doctor.getEdad());
         System.out.println("Titulo: " + doctor.getTitulo());
         System.out.println("Año de experiencia: " + doctor.getExpYear());
-        System.out.println("----------------------------------------------------");
+        System.out.println("--------------------------------------------------------------");
     }
 
     // util functions
