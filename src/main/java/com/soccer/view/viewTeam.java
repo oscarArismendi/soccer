@@ -87,19 +87,24 @@ public class viewTeam {
         System.out.println("3. Añadir jugador");
         System.out.println("4. Añadir entrenador");
         System.out.println("5. Añadir doctor");
-        System.out.println("6. Cancelar");
+        System.out.println("6. Eliminar jugador");
+        System.out.println("7. Eliminar entrenador");
+        System.out.println("8. Eliminar doctor");
+        System.out.println("9. Cancelar");
 
-        int option = option_validation("opcion: ", 1, 6);
+        int option = option_validation("opcion: ", 1, 9);
 
         switch (option) {
             case 1:
                 System.out.println("Ingrese el nuevo nombre:");
                 String nuevoNombre = scanner.nextLine();
+                System.out.println("Nombre actualizado exitosamente.");
                 team.setNombre(nuevoNombre);
                 break;
             case 2:
                 System.out.println("Ingrese la nueva ciudad:");
                 team.setCiudad(scanner.nextLine());
+                System.out.println("Ciudad actualizado exitosamente.");
                 break;
             case 3:
                 System.out.println("Ingrese el codigo del jugador a añadir:");
@@ -135,11 +140,62 @@ public class viewTeam {
                 }
                 break;
             case 6:
+                System.out.println("Ingrese el codigo del jugador a eliminar:");
+                String delIdJugador = scanner.nextLine();
+                Player delPlayer = controlador.jugadores.get(delIdJugador);
+                if(delPlayer == null){
+                    System.out.println("El jugador no existe");
+                    break;
+                }
+                boolean IsPlayerTeam = team.getLstJugadores().contains(delPlayer);
+                
+                if (IsPlayerTeam == true) {
+                    team.deleteLstJugadores(delPlayer);
+                    System.out.println("Jugador eliminado exitosamente.");
+                } else {
+                    System.out.println("El jugador no esta en el equipo.");
+                }
+                break;
+            case 7:
+                System.out.println("Ingrese el codigo del entrenador a eliminar:");
+                String delIdEntrenador = scanner.nextLine();
+                Coach delCoach = controlador.entrenadores.get(delIdEntrenador);
+                if(delCoach == null){
+                    System.out.println("El entrenador no existe");
+                    break;
+                }
+                boolean IsCoachTeam = team.getLstEntrenadores().contains(delCoach);
+                
+                if (IsCoachTeam == true) {
+                    team.deleteLstEntrenadores(delCoach);
+                    System.out.println("Entrenador eliminado exitosamente.");
+                } else {
+                    System.out.println("El entrenador no esta en el equipo.");
+                }
+                break;
+            case 8:
+                System.out.println("Ingrese el codigo del doctor a eliminar:");
+                String delIdDoctor = scanner.nextLine();
+                Doctor delDoctor = controlador.doctores.get(delIdDoctor);
+                if(delDoctor == null){
+                    System.out.println("El doctor no existe");
+                    break;
+                }
+                boolean IsDoctorTeam = team.getLstMasajistas().contains(delDoctor);
+                
+                if (IsDoctorTeam == true) {
+                    team.deleteLstMasajistas(delDoctor);
+                    System.out.println("Doctor eliminado exitosamente.");
+                } else {
+                    System.out.println("El doctor no esta en el equipo.");
+                }
+                break;
+            case 9:
                 return;
             default:
                 System.out.println("Opción inválida.");
         }
-        System.out.println("Equipo actualizado exitosamente.");
+        
         pause();
     }
 

@@ -40,20 +40,34 @@ public class Team {
         this.lstJugadores.add(player);
     }
 
+    public void deleteLstJugadores(Player player){
+        this.lstJugadores.remove(player);
+    }
+
     public List<Coach> getLstEntrenadores() {
         return lstEntrenadores;
     }
 
     public void setLstEntrenadores(Coach coach) {
         this.lstEntrenadores.add(coach);
+
+    }
+
+    public void deleteLstEntrenadores(Coach coach){
+        this.lstEntrenadores.remove(coach);
     }
 
     public List<Doctor> getLstMasajistas() {
         return lstMasajistas;
     }
 
+
     public void setLstMasajistas(Doctor masajista) {
         this.lstMasajistas.add(masajista);
+    }
+
+    public void deleteLstMasajistas(Doctor masajista){
+        this.lstMasajistas.remove(masajista);
     }
 
 }
