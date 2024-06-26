@@ -43,6 +43,7 @@ public class viewCoach {
 
     private void displayMenu() {
         cleanScreen();
+        System.out.println("---------------------MENU ENTRENADOR-------------------------");
         System.out.println("1. Crear entrenador");
         System.out.println("2. Actualizar entrenador");
         System.out.println("3. Buscar entrenador");
@@ -52,9 +53,11 @@ public class viewCoach {
     }
 
     private void createCoach() {
+        cleanScreen();
+        System.out.println("---------------------MENU CREAR ENTRENADOR-------------------");
         System.out.println("Ingresar codigo del entrenador:");
         String codigoEntrenador = scanner.nextLine();
-        System.out.println("Ingresar la identificacion del jugador");
+        System.out.println("Ingresar la identificacion del entrenador");
         Integer id = scanner.nextInt();
         scanner.nextLine();
         System.out.println("Introduce el nombre:");
@@ -75,6 +78,8 @@ public class viewCoach {
     }
 
     private void updateCoach() {
+        cleanScreen();
+        System.out.println("---------------------MENU ACTUALIZAR ENTRENADOR--------------");
         System.out.println("Introduce el codigo del entrenador a actualizar:");
         String id = scanner.nextLine();
 
@@ -85,6 +90,7 @@ public class viewCoach {
 
         Coach coach = controlador.entrenadores.get(id);
         cleanScreen();
+        System.out.println("---------------------MENU ACTUALIZAR ENTRENADOR--------------");
         System.out.println("1. Cambiar nombre");
         System.out.println("2. Cambiar apellido");
         System.out.println("3. Cambiar edad");
@@ -123,6 +129,8 @@ public class viewCoach {
     }
 
     private void searchCoach() {
+        cleanScreen();
+        System.out.println("---------------------MENU BUSCAR ENTRENADOR------------------");
         System.out.println("Introduce el codigo del entrenador a buscar:");
         String id = scanner.nextLine();
         Coach coach = controlador.entrenadores.get(id);
@@ -135,6 +143,8 @@ public class viewCoach {
     }
 
     private void deleteCoach() {
+        cleanScreen();
+        System.out.println("---------------------MENU ELIMANAR ENTRENADOR----------------");
         System.out.println("Introduce el codigo del entrenador a eliminar:");
         String id = scanner.nextLine();
         if (controlador.entrenadores.remove(id) != null) {
@@ -146,6 +156,8 @@ public class viewCoach {
     }
 
     private void listAllCoaches() {
+        cleanScreen();
+        System.out.println("---------------------MENU TODOS LOS ENTRENADORES-------------");
         Set<String> keys = controlador.entrenadores.keySet();
         for (String key : keys) {
             Coach coach = controlador.entrenadores.get(key);
@@ -155,7 +167,6 @@ public class viewCoach {
     }
 
     private void displayCoachDetails(Coach coach) {
-        System.out.println("----------------------------------------------------");
         System.out.println("ID: " + coach.getId());
         System.out.println("Nombre: " + coach.getNombre() + " " + coach.getApellido());
         System.out.println("Edad: " + coach.getEdad());
